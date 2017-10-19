@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
+using SharedData;
 
 namespace Walterlv.Demo
 {
@@ -7,6 +9,14 @@ namespace Walterlv.Demo
         public MainWindow()
         {
             InitializeComponent();
+            var vm = new EditableViewModel();
+            DataContext = vm;
+            vm.RunChangingOrder();
+        }
+
+        private void OnItemLoaded(object sender, RoutedEventArgs e)
+        {
+            ((TextBlock) sender).Text = sender.GetHashCode().ToString();
         }
     }
 }

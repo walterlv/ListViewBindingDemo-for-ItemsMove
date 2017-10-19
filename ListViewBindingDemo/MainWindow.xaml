@@ -8,12 +8,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <ListView>
+        <ListView x:Name="TestingListView" ItemsSource="{Binding EditableCollection}">
             <ListView.ItemTemplate>
                 <DataTemplate DataType="ws:EditableModel">
-                    <Border Background="Transparent">
-                        <TextBox Text="{Binding EditingText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                    </Border>
+                    <Grid Background="Transparent">
+                        <TextBox Width="200" Text="{Binding EditingText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Margin="4 0" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                   Loaded="OnItemLoaded" IsHitTestVisible="False"/>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -1,4 +1,6 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using SharedData;
 
 namespace Walterlv.Demo
 {
@@ -6,7 +8,15 @@ namespace Walterlv.Demo
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+            var vm = new EditableViewModel();
+            DataContext = vm;
+            vm.RunChangingOrder();
+        }
+
+        private void OnItemLoaded(object sender, RoutedEventArgs e)
+        {
+            ((TextBlock)sender).Text = sender.GetHashCode().ToString();
         }
     }
 }

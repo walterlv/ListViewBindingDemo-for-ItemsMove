@@ -5,9 +5,20 @@
     xmlns:local="using:Walterlv.Demo"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ws="using:Walterlv"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <ListView x:Name="TestingListView" ItemsSource="{Binding EditableCollection}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="ws:EditableModel">
+                    <Grid Background="Transparent">
+                        <TextBox Width="200" Text="{Binding EditingText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Margin="4 0" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                   Loaded="OnItemLoaded" IsHitTestVisible="False"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
