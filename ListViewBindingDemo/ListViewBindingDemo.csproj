@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B79A62AE-F3BF-496D-9D87-E6E36CA4CFDD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ListViewBindingDemo</RootNamespace>
+    <RootNamespace>Walterlv.Demo</RootNamespace>
     <AssemblyName>ListViewBindingDemo</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="..\SharedData\EditableCollection.cs">
+      <Link>EditableCollection.cs</Link>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -92,6 +95,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharedModel\SharedModel.csproj">
+      <Project>{87ff9c0c-bb8e-4f0d-924c-b9a6a816e859}</Project>
+      <Name>SharedModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
